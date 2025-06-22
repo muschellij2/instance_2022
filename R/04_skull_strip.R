@@ -8,7 +8,7 @@ source(here::here("R/utils.R"))
 file = here::here("data", "filenames.rds")
 df = readRDS(file)
 
-iid = get_fold()
+ifold = get_fold()
 
 df = df %>%
   filter(fold %in% ifold)
