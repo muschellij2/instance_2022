@@ -23,11 +23,15 @@ df = df %>%
 
 dir_ss = here::here("data", "brain_extracted")
 dir_mask = here::here("data", "brain_mask")
+dir_image = here::here("results", "image")
+dir_image_ss = here::here("results", "image_ss")
 
 fs::dir_create(
   c(
     dir_ss,
-    dir_mask
+    dir_mask,
+    dir_image,
+    dir_image_ss
   )
 )
 
@@ -37,6 +41,9 @@ df = df %>%
 
     file_ss = here::here(dir_ss, stub),
     file_mask = here::here(dir_mask, stub),
+    
+    file_image_nifti = here::here(dir_image, paste0(stub, ".png")),
+    file_image_ss = here::here(dir_image_ss, paste0(stub, ".png")),
     
   ) %>%
   select(-stub)

@@ -29,9 +29,7 @@ for (iid in seq(nrow(df))) {
   file_image_nifti = idf$file_image_nifti
   file_ct = idf$file_nifti_ct
   file_roi = idf$file_nifti_roi
-  dir_study = basename(idf$dir_study)
-  dir_study = sub("_CT_", "_", dir_study)
-  dir_study = gsub("_", "\n", dir_study)
+  dir_study = idf$id
   
   if (!file.exists(file_image_nifti) &&
       file.exists(file_ct)) {
