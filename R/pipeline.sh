@@ -1,5 +1,5 @@
 
-Rnosave R/03_plot_nifti.R -J PLOT --array=1-100 --mem=8G -o %x_%A_%a.out -e %x_%A_%a.err
+Rnosave R/03_plot_nifti.R -J PLOT --mem=8G -o %x_%A.out -e %x_%A.err
 Rnosave R/03_get_image_dimensions.R -J DIMS --mem=8G -o %x_%A.out -e %x_%A.err
 
 
@@ -8,7 +8,7 @@ Rnosave R/03.999_convert_nifti_cluster.R -J SS --array=1-5109 --mem=8G -o %x_%A_
 Rnosave R/03.999_convert_nifti_cluster.R -J NIFTI --mem=8G -o %x_%A.out -e %x_%A.err
 
 
-Rnosave R/04_skull_strip.R -J SS --array=1-5116 --mem=8G -o %x_%A_%a.out -e %x_%A_%a.err
+Rnosave R/04_skull_strip.R -J SS --array=1-130 --mem=8G -o %x_%A_%a.out -e %x_%A_%a.err
 
 Rnosave R/04_brainchop_skull_strip.R -J BRAINCHOP --array=1-5 --mem=8G -o %x_%A_%a.out -e %x_%A_%a.err
 
