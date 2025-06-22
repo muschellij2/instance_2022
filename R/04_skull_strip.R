@@ -28,7 +28,7 @@ for (iid in seq(nrow(df))) {
     ss.template.file =
       system.file("scct_unsmooth_SS_0.01.nii.gz",
                   package = "ichseg")
-    ss.template.mask =cp 
+    ss.template.mask =
     system.file("scct_unsmooth_SS_0.01_Mask.nii.gz",
                 package = "ichseg")
     
