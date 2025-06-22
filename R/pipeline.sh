@@ -12,7 +12,7 @@ Rnosave R/04_skull_strip.R -J SS --array=1-130 --mem=8G -o %x_%A_%a.out -e %x_%A
 
 Rnosave R/04_brainchop_skull_strip.R -J BRAINCHOP --array=1-5 --mem=8G -o %x_%A_%a.out -e %x_%A_%a.err
 
-Rnosave R/05_plot_skull_strip.R -J SSPLOT --array=1-5116 --mem=8G -o %x_%A_%a.out -e %x_%A_%a.err
+Rnosave R/05_plot_skull_strip.R -J SSPLOT --mem=8G -o %x_%A.out -e %x_%A.err
 
 
 

@@ -7,10 +7,10 @@ source(here::here("R/utils.R"))
 file = here::here("data", "filenames.rds")
 df = readRDS(file)
 
-ifold = get_fold()
-
-df = df %>%
-  filter(fold %in% ifold)
+# ifold = get_fold()
+# 
+# df = df %>%
+#   filter(fold %in% ifold)
 print(nrow(df))
 
 file_empty = function(file) {
