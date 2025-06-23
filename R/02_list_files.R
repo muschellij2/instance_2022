@@ -15,13 +15,15 @@ df = tibble(
 df = df %>% 
   mutate(
     file_nifti_roi = sub("nifti/", "label/", file_nifti_ct),
-    file_nifti_roi = ifelse(!file.exists(file_nifti_roi), NA, file_nifti_roi),
+    file_nifti_prediction = sub("nifti/", "prediction/", file_nifti_ct),
+    
     group = ifelse(!file.exists(file_nifti_roi), "evaluation", "train"),
     id = nii.stub(file_nifti_ct, bn = TRUE),
     fold = as.numeric(factor(id))
   )
 
 dir_ss = here::here("data", "brain_extracted")
+dir_prediction = here::here("data", "prediction")
 dir_mask = here::here("data", "brain_mask")
 dir_image = here::here("results", "image")
 dir_image_ss = here::here("results", "image_ss")
@@ -30,6 +32,8 @@ fs::dir_create(
   c(
     dir_ss,
     dir_mask,
+    dir_prediction,
+    
     dir_image,
     dir_image_ss
   )
@@ -37,11 +41,13 @@ fs::dir_create(
 
 df = df %>%
   mutate(
-    stub = nii.stub(file_nifti_ct, bn = TRUE),
+    stub = basename(file_nifti_ct),
 
     file_ss = here::here(dir_ss, stub),
     file_mask = here::here(dir_mask, stub),
+    file_prediction = here::here(dir_prediction, stub),
     
+    stub = nii.stub(file_nifti_ct, bn = TRUE),
     file_image_nifti = here::here(dir_image, paste0(stub, ".png")),
     file_image_ss = here::here(dir_image_ss, paste0(stub, ".png")),
     
