@@ -21,7 +21,12 @@ pkgs = c("numpy<2", "nibabel", "pillow", "six", "scikit-learn", "scikit-image",
          "webcolors", "plotly", "pandas", "matplotlib", "h5py>=2.9", "fslpy", 
          "gast==0.2.2", "tensorflow<2.16", "statsmodels")
 reticulate::py_require(pkgs)
-iid = which(df$id == "077")
+
+ifold = get_fold(default = df$fold)
+
+df = df %>%
+  filter(fold %in% ifold)
+iid = 1
 
 
 for (iid in seq(nrow(df))) {
