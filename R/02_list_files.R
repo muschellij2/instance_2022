@@ -37,7 +37,7 @@ fs::dir_create(
 
 df = df %>%
   mutate(
-    stub = basename(file_nifti_ct),
+    stub = nii.stub(file_nifti_ct, bn = TRUE),
 
     file_ss = here::here(dir_ss, stub),
     file_mask = here::here(dir_mask, stub),
